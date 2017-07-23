@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package messages;
+
+service MessagesService {
+    rpc GetMessages (GetMessagesRequest) returns (GetMessagesResponse) {}
+    rpc AddMessage (AddMessageRequest) returns (AddMessageResponse) {}
+    rpc GetMessage (GetMessageRequest) returns (GetMessageResponse) {}
+    rpc DeleteMessages (DeleteMessagesRequest) returns (DeleteMessagesRespone) {}
+}
+
+message GetMessagesRequest {
+    // empty
+}
+
+message GetMessagesResponse {
+    repeated Message messages = 1;
+}
+
+message AddMessageRequest {
+    string text = 1;
+}
+
+message AddMessageResponse {
+    int64 id = 1;
+}
+
+message GetMessageRequest {
+    int64 id = 1;
+}
+
+message GetMessageResponse {
+    string text = 1;
+}
+
+message DeleteMessagesRequest {
+    int64 id = 1;
+}
+
+message DeleteMessagesRespone {
+    // empty
+}
+
+message Message {
+    int64 id = 1;
+    string text = 2;
+}
+
+
